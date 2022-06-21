@@ -1,0 +1,873 @@
+{
+  "name": "alienvault-usm-anywhere",
+  "label": "AlienVault USM Anywhere",
+  "description": "AlienVault USM Anywhere Connector can be used to automate actions like get events, get event details, get alarm details, get alarms, get alarm labels, add alarm labels and delete alarm labels",
+  "publisher": "Community",
+  "cs_approved": false,
+  "cs_compatible": true,
+  "version": "1.2.0",
+  "ingestion_supported": true,
+  "ingestion_modes": [
+    "scheduled"
+  ],
+  "category": "Security Management Solution",
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.2.0/alienvault-usm-anywhere/141/alienvault-usm-anywhere-v1-2-0",
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "description": "Server address of the AlienVault USM Anywhere server to which you will connect and perform automated operations.",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "host"
+      },
+      {
+        "title": "Client ID",
+        "description": "Client ID to access the AlienVault USM Anywhere server to which you will connect and perform automated operations.",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "username"
+      },
+      {
+        "title": "Client Secret",
+        "description": "Client Secret token to access the AlienVault USM Anywhere server to which you will connect and perform automated operations.",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "password",
+        "name": "password"
+      },
+      {
+        "title": "Verify SSL",
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not.By default, this option is set as True.",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "type": "checkbox",
+        "name": "verify_ssl",
+        "value": true
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "get_alarms",
+      "title": "Get Alarms",
+      "description": "Retrieves a list of all alarms from the AlienVault USM Anywhere server or a list of alarms, based on the input parameters you have specified.",
+      "category": "investigation",
+      "annotation": "get_alarms",
+      "parameters": [
+        {
+          "title": "Page",
+          "tooltip": "The page number (zero based) of results to return",
+          "description": "Page number (zero-based) from which you want to retrieve results.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "page",
+          "value": 1
+        },
+        {
+          "title": "Size",
+          "tooltip": "The number of results to return for on each page",
+          "description": "Number of results that the operation should include per page.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "size",
+          "value": 50
+        },
+        {
+          "title": "Sort",
+          "tooltip": "Set direction that the results should be sorted by",
+          "description": "Parameter and direction based on which you want the operation to sort results.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+            "Priority",
+            "Alarm Status",
+            "Intent",
+            "Strategy",
+            "Method",
+            "Time Created"
+          ],
+          "name": "sort",
+          "value": "Time Created"
+        },
+        {
+          "title": "Sort Order",
+          "tooltip": "",
+          "description": "",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+            "Ascending",
+            "Descending"
+          ],
+          "name": "sort_order",
+          "value": "Ascending"
+        },
+        {
+          "title": "Status",
+          "tooltip": "The status of the alarm",
+          "description": "Status of the alarm based on which you want to filter alarms retrieved from the AlienVault USM Anywhere server.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+            "Open",
+            "Closed",
+            "In Review"
+          ],
+          "name": "status",
+          "value": "Open"
+        },
+        {
+          "title": "Suppressed",
+          "tooltip": "Filter alarms by the suppressed flag",
+          "description": "Select this checkbox, i.e., set it to True, to filter alarms retrieved from the AlienVault USM Anywhere server by the suppressed flag.By default, this is set as False.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "name": "suppressed",
+          "value": false
+        },
+        {
+          "title": "Rule Intent",
+          "tooltip": "The intent of the rule that triggered the alarm",
+          "description": "Intent of the rule that triggered the alarm, based on which you want to filter alarms retrieved from the AlienVault USM Anywhere server.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "rule_intent",
+          "value": "Environmental Awareness"
+        },
+        {
+          "title": "Rule Method",
+          "tooltip": "The method of the rule that triggered the alarm",
+          "description": "Method of the rule that triggered the alarm, based on which you want to filter alarms retrieved from the AlienVault USM Anywhere server.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "rule_method",
+          "value": "AWS EC2 Security Group Modified"
+        },
+        {
+          "title": "Rule Strategy",
+          "tooltip": "The strategy of the rule that triggered the alarm",
+          "description": "Strategy of the rule that triggered the alarm, based on which you want to filter alarms retrieved from the AlienVault USM Anywhere server.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "rule_strategy",
+          "value": "Network Access Control Modification"
+        },
+        {
+          "title": "Priority Label",
+          "tooltip": "The priority of the alarm",
+          "description": "Priority of the alarm based on which you want to filter alarms retrieved from the AlienVault USM Anywhere server.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "priority_label",
+          "value": "medium"
+        },
+        {
+          "title": "Alarm Sensor Sources",
+          "tooltip": "The uuid of the sensor",
+          "description": "UUID of the sensor based on which you want to filter alarms retrieved from the AlienVault USM Anywhere server.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "alarm_sensor_sources"
+        },
+        {
+          "title": "After Time",
+          "tooltip": "Filtered results will include alarms that occurred after this time",
+          "description": "Timestamp after which the filtered results will be retrieved from the AlienVault USM Anywhere server, i.e., this operation will include alarms that occurred after this specified timestamp.By default, this is set as 24 hours. For example 2018-12-27T04:48:08.702Z.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "timestamp_occured_gte",
+          "value": "2018-12-27T04:48:08.702Z"
+        },
+        {
+          "title": "Before Time",
+          "tooltip": "Filtered results will include alarms that occurred before this time",
+          "description": "Timestamp before which the filtered results will be retrieved from the AlienVault USM Anywhere server, i.e., this operation will include alarms that occurred before this specified timestamp.By default, this is set as 24 hours. For example 2018-12-27T04:48:08.702Z.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "timestamp_occured_lte",
+          "value": "2018-12-27T04:48:08.702Z"
+        }
+      ],
+      "output_schema": {
+        "page": {
+          "totalPages": "",
+          "number": "",
+          "size": "",
+          "totalElements": ""
+        },
+        "_links": {
+          "next": {
+            "href": ""
+          },
+          "first": {
+            "href": ""
+          },
+          "self": {
+            "href": ""
+          },
+          "last": {
+            "href": ""
+          }
+        },
+        "_embedded": {
+          "alarms": [
+            {
+              "destination_name": "",
+              "timestamp_received": "",
+              "uuid": "",
+              "alarm_destinations": [],
+              "rule_method": "",
+              "alarm_destination_zones": [],
+              "app_type": "",
+              "transient": "",
+              "source_organisation": "",
+              "access_control_outcome": "",
+              "rule_name": "",
+              "priority": "",
+              "event_type": "",
+              "has_alarm": "",
+              "alarm_source_names": [],
+              "packet_data": [],
+              "packet_type": "",
+              "access_key_id": "",
+              "events": [
+                {
+                  "message": {
+                    "app_id": "",
+                    "uuid": "",
+                    "plugin_device": "",
+                    "source_registered_country": "",
+                    "destination_canonical": "",
+                    "customheader_10": "",
+                    "app_type": "",
+                    "destination_hostname": "",
+                    "source_organisation": "",
+                    "suppressed": "",
+                    "access_control_outcome": "",
+                    "source_instance_id": "",
+                    "source_canonical": "",
+                    "source_service_name": "",
+                    "event_type": "",
+                    "has_alarm": "",
+                    "app_name": "",
+                    "error_code": "",
+                    "was_guessed": "",
+                    "destination_infrastructure_name": "",
+                    "source_city": "",
+                    "source_longitude": "",
+                    "access_key_id": "",
+                    "event_name": "",
+                    "timestamp_received": "",
+                    "rep_device_version": "",
+                    "rep_device_rule_id": "",
+                    "sensor_uuid": "",
+                    "source_username": "",
+                    "customheader_1": "",
+                    "error_message": "",
+                    "was_fuzzied": "",
+                    "highlight_fields": [],
+                    "log": "",
+                    "request_user_agent": "",
+                    "timestamp_occured": "",
+                    "customfield_1": "",
+                    "authentication_mode": "",
+                    "customfield_10": "",
+                    "received_from": "",
+                    "source_country": "",
+                    "plugin": "",
+                    "source_name": "",
+                    "destination_infrastructure_type": "",
+                    "source_userid": "",
+                    "account_name": "",
+                    "needs_enrichment": "",
+                    "source_infrastructure_name": "",
+                    "source_latitude": "",
+                    "account_id": "",
+                    "packet_type": "",
+                    "plugin_device_type": "",
+                    "plugin_version": "",
+                    "source_address": "",
+                    "used_hint": "",
+                    "destination_userid": "",
+                    "transient": "",
+                    "source_infrastructure_type": "",
+                    "source_region": "",
+                    "source_asset_id": "",
+                    "destination_zone": "",
+                    "timestamp_occured_iso8601": "",
+                    "destination_name": "",
+                    "timestamp_received_iso8601": "",
+                    "authentication_type": ""
+                  },
+                  "timeStamp": "",
+                  "enriched": "",
+                  "_links": {
+                    "self": {
+                      "templated": "",
+                      "href": ""
+                    }
+                  }
+                }
+              ],
+              "app_id": "",
+              "sensor_uuid": "",
+              "alarm_source_latitudes": [],
+              "alarm_destination_names": [],
+              "app_name": "",
+              "alarm_source_countries": [],
+              "highlight_fields": [],
+              "rule_intent": "",
+              "timestamp_occured": "",
+              "alarm_sources": [],
+              "alarm_source_asset_ids": [],
+              "source_canonical": "",
+              "_links": {
+                "self": {
+                  "href": ""
+                }
+              },
+              "source_name": "",
+              "alarm_events_count": "",
+              "alarm_source_longitudes": [],
+              "account_name": "",
+              "needs_enrichment": "",
+              "priority_label": "",
+              "timestamp_occured_iso8601": "",
+              "account_id": "",
+              "alarm_source_cities": [],
+              "status": "",
+              "suppressed": "",
+              "rule_id": "",
+              "source_asset_id": "",
+              "alarm_source_organisations": [],
+              "rule_strategy": "",
+              "alarm_sensor_sources": [],
+              "timestamp_received_iso8601": ""
+            }
+          ]
+        }
+      },
+      "enabled": true
+    },
+    {
+      "operation": "get_alarm_details",
+      "title": "Get Alarm Details",
+      "description": "Retrieves details of alarms from the AlienVault USM Anywhere server, based on the alarm ID's you have specified.",
+      "category": "investigation",
+      "annotation": "get_alarm_details",
+      "parameters": [
+        {
+          "title": "Alarm IDs",
+          "tooltip": "List Alarm IDs (CSV/List format) to get its details",
+          "description": "ID's of the alarms in csv or list format whose details you want to retrieve from the AlienVault USM Anywhere server.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "alarmId"
+        }
+      ],
+      "output_schema": [
+        {
+          "_links": {
+            "self": {
+              "href": "",
+              "templated": ""
+            }
+          },
+          "uuid": "",
+          "has_alarm": "",
+          "needs_enrichment": "",
+          "priority": "",
+          "suppressed": "",
+          "events": [
+            {
+              "uuid": ""
+            }
+          ],
+          "rule_intent": "",
+          "app_type": "",
+          "source_username": "",
+          "security_group_id": "",
+          "destination_name": "",
+          "timestamp_occured": "",
+          "authentication_type": "",
+          "event_type": "",
+          "rule_method": "",
+          "priority_label": "",
+          "app_id": "",
+          "source_name": "",
+          "timestamp_received": "",
+          "rule_strategy": "",
+          "timestamp_received_iso8601": "",
+          "request_user_agent": "",
+          "rule_id": "",
+          "sensor_uuid": "",
+          "timestamp_occured_iso8601": "",
+          "transient": "",
+          "event_name": "",
+          "packet_type": "",
+          "status": ""
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "operation": "get_alarm_labels",
+      "title": "Get Alarm Labels",
+      "description": "Retrieves a list of label IDs for a specific alarm from the AlienVault USM Anywhere server, based on the alarm ID you have specified.",
+      "category": "investigation",
+      "annotation": "get_alarm_labels",
+      "parameters": [
+        {
+          "title": "Alarm ID",
+          "tooltip": "Alarm ID to get its labels",
+          "description": "ID of the alarm whose list of alarm labels you want to retrieve from the AlienVault USM Anywhere server.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "alarmId"
+        }
+      ],
+      "output_schema": {
+        "data": {
+          "_links": {
+            "self": {
+              "href": ""
+            }
+          },
+          "alarm_labels": []
+        },
+        "status": "",
+        "operation": "",
+        "message": ""
+      },
+      "enabled": true
+    },
+    {
+      "operation": "add_alarm_label",
+      "title": "Add Alarm Label",
+      "description": "Adds a label to a specific alarm on the AlienVault USM Anywhere server, based on the alarm ID and label ID you have specified.",
+      "category": "investigation",
+      "annotation": "add_alarm_label",
+      "parameters": [
+        {
+          "title": "Alarm ID",
+          "description": "ID of the alarm to which you want to add the specified label on the AlienVault USM Anywhere server.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "alarmId"
+        },
+        {
+          "title": "Label ID",
+          "description": "ID of the label that you want to add to the specified alarm on the AlienVault USM Anywhere server.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "labelId"
+        }
+      ],
+      "output_schema": {
+        "status": "",
+        "message": ""
+      },
+      "enabled": true
+    },
+    {
+      "operation": "delete_alarm_label",
+      "title": "Delete Alarm Label",
+      "description": "Deletes a label from a specific alarm on the AlienVault USM Anywhere server, based on the alarm ID and label ID you have specified.",
+      "category": "investigation",
+      "annotation": "delete_alarm_label",
+      "parameters": [
+        {
+          "title": "Alarm ID",
+          "description": "ID of the alarm whose label you want to delete from the AlienVault USM Anywhere server.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "alarmId"
+        },
+        {
+          "title": "Label ID",
+          "description": "ID of the label that you want to delete from the specified alarm on the AlienVault USM Anywhere server.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "labelId"
+        }
+      ],
+      "output_schema": {
+        "status": "",
+        "message": ""
+      },
+      "enabled": true
+    },
+    {
+      "operation": "get_events",
+      "title": "Get Events",
+      "description": "Retrieves all events from the AlienVault USM Anywhere server or specific events, based on the input parameters you have specified.",
+      "category": "investigation",
+      "annotation": "get_events",
+      "parameters": [
+        {
+          "title": "Account Name",
+          "tooltip": "The account name",
+          "description": "Account name of the event based on which you want to filter events retrieved from the AlienVault USM Anywhere server.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "accountName",
+          "value": "account"
+        },
+        {
+          "title": "Page",
+          "tooltip": "The page number (zero based) of results to return",
+          "description": "Page number (zero-based) from which you want to retrieve results.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "page",
+          "value": 1
+        },
+        {
+          "title": "Size",
+          "tooltip": "The number of results to return for on each page",
+          "description": "Number of results that the operation should include per page.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "size",
+          "value": 50
+        },
+        {
+          "title": "Sort",
+          "tooltip": "Set direction that the results should be sorted by",
+          "description": "Parameter and direction based on which you want the operation to sort results",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+            "Username",
+            "Event Name",
+            "Time Created"
+          ],
+          "name": "sort",
+          "value": "Time Created"
+        },
+        {
+          "title": "Sort Order",
+          "tooltip": "",
+          "description": "",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+            "Ascending",
+            "Descending"
+          ],
+          "name": "sort_order",
+          "value": "Ascending"
+        },
+        {
+          "title": "Suppressed",
+          "tooltip": "Filter alarms by the suppressed flag",
+          "description": "Select this checkbox, i.e., set it to True, to filter events retrieved from the AlienVault USM Anywhere server by the suppressed flag.By default, this is set as False.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "name": "suppressed",
+          "value": false
+        },
+        {
+          "title": "Plugin",
+          "tooltip": "The plugin name",
+          "description": "Name of the plugin based on which you want to filter events retrieved from the AlienVault USM Anywhere server.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "plugin",
+          "value": "plugin"
+        },
+        {
+          "title": "Event Name",
+          "tooltip": "The name of the event",
+          "description": "Name of the event based on which you want to filter events retrieved from the AlienVault USM Anywhere server.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "eventName"
+        },
+        {
+          "title": "Source Name",
+          "tooltip": "The source name",
+          "description": "The source name",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "sourceName"
+        },
+        {
+          "title": "Sensor UUID",
+          "tooltip": "The uuid of the sensor",
+          "description": "UUID of the sensor based on which you want to filter events retrieved from the AlienVault USM Anywhere server.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "sensorUUID",
+          "value": "308ba880-2518-44bb-9ada-07b158d11713"
+        },
+        {
+          "title": "Source Username",
+          "tooltip": "The username of the person that triggered the event",
+          "description": "Username of the person who triggered the event based on which you want to filter events retrieved from the AlienVault USM Anywhere server.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "sourceUsername",
+          "value": "user@email.com"
+        },
+        {
+          "title": "After Time",
+          "tooltip": "Filtered results will include events that occurred after this time",
+          "description": "Timestamp after which the filtered results will be retrieved from the AlienVault USM Anywhere server, i.e., this operation will include events that occurred after this specified timestamp.By default, this is set as 24 hours. For example, 2018-12-27T04:48:08.702Z.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "timestamp_occured_gte",
+          "value": "2018-12-27T04:48:08.702Z"
+        },
+        {
+          "title": "Before Time",
+          "tooltip": "Filtered results will include events that occurred before this time",
+          "description": "Timestamp before which the filtered results will be retrieved from the AlienVault USM Anywhere server, i.e., this operation will include events that occurred before this specified timestamp.By default, this is set as 24 hours. For example, 2018-12-27T04:48:08.702Z.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "timestamp_occured_lte",
+          "value": "2018-12-27T04:48:08.702Z"
+        }
+      ],
+      "output_schema": {
+        "page": {
+          "totalElements": "",
+          "totalPages": "",
+          "number": "",
+          "size": ""
+        },
+        "_links": {
+          "next": {
+            "href": ""
+          },
+          "self": {
+            "href": ""
+          },
+          "first": {
+            "href": ""
+          },
+          "last": {
+            "href": ""
+          }
+        },
+        "_embedded": {
+          "eventResourceList": [
+            {
+              "source_name": "",
+              "authentication_mode": "",
+              "timestamp_occured": "",
+              "timestamp_occured_iso8601": "",
+              "destination_canonical": "",
+              "access_key_id": "",
+              "_links": {
+                "self": {
+                  "href": ""
+                }
+              },
+              "sensor_uuid": "",
+              "event_type": "",
+              "timestamp_received_iso8601": "",
+              "source_infrastructure_name": "",
+              "transient": "",
+              "rep_device_rule_id": "",
+              "needs_enrichment": "",
+              "log": "",
+              "access_control_outcome": "",
+              "customfield_1": "",
+              "destination_userid": "",
+              "timestamp_received": "",
+              "customheader_10": "",
+              "source_city": "",
+              "uuid": "",
+              "was_guessed": "",
+              "source_username": "",
+              "rep_device_version": "",
+              "source_region": "",
+              "app_type": "",
+              "app_id": "",
+              "request_user_agent": "",
+              "source_address": "",
+              "was_fuzzied": "",
+              "plugin_device": "",
+              "event_description_url": "",
+              "received_from": "",
+              "source_canonical": "",
+              "source_infrastructure_type": "",
+              "packet_type": "",
+              "customheader_1": "",
+              "destination_name": "",
+              "source_country": "",
+              "plugin": "",
+              "event_name": "",
+              "used_hint": "",
+              "source_organisation": "",
+              "plugin_device_type": "",
+              "event_action": "",
+              "has_alarm": "",
+              "account_name": "",
+              "destination_hostname": "",
+              "source_longitude": "",
+              "source_instance_id": "",
+              "source_service_name": "",
+              "destination_infrastructure_name": "",
+              "source_userid": "",
+              "highlight_fields": [],
+              "destination_zone": "",
+              "account_id": "",
+              "authentication_type": "",
+              "suppressed": "",
+              "source_asset_id": "",
+              "customfield_10": "",
+              "source_latitude": "",
+              "destination_infrastructure_type": "",
+              "plugin_version": "",
+              "source_registered_country": "",
+              "app_name": ""
+            }
+          ]
+        }
+      },
+      "enabled": true
+    },
+    {
+      "operation": "get_event_details",
+      "title": "Get Event Details",
+      "description": "Retrieves details for a specific event from the AlienVault USM Anywhere server, based on the event ID (UUID) you have specified.",
+      "category": "investigation",
+      "annotation": "get_event_details",
+      "parameters": [
+        {
+          "title": "Event ID",
+          "tooltip": "Event ID(UUID) to get its details",
+          "description": "ID (UUID) of the event whose details you want to retrieve from the AlienVault USM Anywhere server.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "eventId"
+        }
+      ],
+      "output_schema": {
+        "_links": {
+          "self": {
+            "href": "",
+            "templated": ""
+          }
+        },
+        "uuid": "",
+        "account_name": "",
+        "plugin_device_type": "",
+        "destination_canonical": "",
+        "destination_name": "",
+        "has_alarm": "",
+        "request_user_agent": "",
+        "packet_type": "",
+        "source_canonical": "",
+        "event_name": "",
+        "timestamp_occured": "",
+        "source_service_name": "",
+        "event_type": "",
+        "app_name": "",
+        "timestamp_received": "",
+        "destination_hostname": "",
+        "source_infrastructure_name": "",
+        "plugin": "",
+        "timestamp_occured_iso8601": "",
+        "timestamp_received_iso8601": "",
+        "app_type": "",
+        "authentication_type": "",
+        "access_control_outcome": "",
+        "suppressed": "",
+        "plugin_device": "",
+        "destination_infrastructure_type": "",
+        "source_infrastructure_type": "",
+        "destination_zone": "",
+        "needs_enrichment": "",
+        "source_hostname": "",
+        "app_id": "",
+        "plugin_family": "",
+        "plugin_version": "",
+        "destination_userid": "",
+        "event_action": "",
+        "destination_infrastructure_name": "",
+        "source_name": "",
+        "received_from": "",
+        "event_description": ""
+      },
+      "enabled": true
+    }
+  ]
+}
