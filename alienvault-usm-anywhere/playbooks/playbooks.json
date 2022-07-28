@@ -10,7 +10,10 @@
       "image": null,
       "recordTags": [
         "AlienVault",
-        "alienvault-usm-anywhere"
+        "alienvault-usm-anywhere",
+        "fetch",
+        "create",
+        "ingest"
       ],
       "workflows": [
         {
