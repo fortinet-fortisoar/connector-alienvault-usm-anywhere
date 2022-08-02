@@ -1,391 +1,614 @@
 {
-  "type":"workflow_collections",
-  "data":[
-     {
-        "@type":"WorkflowCollection",
-        "name":"Sample - AlienVault USM Anywhere - 1.2.0",
-        "description":"Sample playbooks for \"AlienVault USM Anywhere\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.",
-        "visible":true,
-        "image":"/api/3/images/0fec21d6-844b-4e16-b32b-11d0bfda7bff",
-        "uuid":"e4de8e4a-9836-49d9-91a1-c67b8a59f367",
-        "id":125,
-        "createUser":"/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-        "createDate":1633027730,
-        "modifyUser":"/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
-        "modifyDate":1648747420,
-        "recordTags":[
-           
-        ],
-        "workflows":[
-           {
-              "@type":"Workflow",
-              "triggerLimit":null,
-              "name":"Alarm: Get Alarms",
-              "aliasName":null,
-              "tag":"#Alienvault USM Anywhere",
-              "description":"Get list of alarms from usm server",
-              "isActive":false,
-              "debug":false,
-              "singleRecordExecution":false,
-              "remoteExecutableFlag":false,
-              "parameters":[
-                 
-              ],
-              "synchronous":false,
-              "lastModifyDate":1625828097,
-              "collection":"/api/3/workflow_collections/e4de8e4a-9836-49d9-91a1-c67b8a59f367",
-              "versions":[
-                 
-              ],
-              "triggerStep":"/api/3/workflow_steps/02aec952-e0d2-4660-902f-ca9aed5a908c",
-              "steps":[
-                 {
-                    "@type":"WorkflowStep",
-                    "name":"Alerts",
-                    "description":null,
-                    "arguments":{
-                       "route":"934938dc-c999-49b4-bdd0-93360ce1e804",
-                       "title":"Alienvault USM Anywhere: Get Alarms",
-                       "resources":[
-                          "alerts"
-                       ],
-                       "inputVariables":[
-                          
-                       ],
-                       "step_variables":{
-                          "input":{
-                             "records":"{{vars.input.records}}"
-                          }
-                       },
-                       "displayConditions":{
-                          "alerts":{
-                             "sort":[
-                                
-                             ],
-                             "limit":30,
-                             "logic":"AND",
-                             "filters":[
-                                
-                             ]
-                          }
-                       },
-                       "executeButtonText":"Execute",
-                       "noRecordExecution":true,
-                       "singleRecordExecution":false
-                    },
-                    "status":null,
-                    "top":"20",
-                    "left":"20",
-                    "stepType":"/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
-                    "uuid":"02aec952-e0d2-4660-902f-ca9aed5a908c",
-                    "id":7420
-                 },
-                 {
-                    "@type":"WorkflowStep",
-                    "name":"Get Alarms",
-                    "description":null,
-                    "arguments":{
-                       "name":"Alienvault USM Anywhere",
-                       "config":"52b04e16-3d4d-49ae-b818-ebe435541a51",
-                       "params":{
-                          "page":"",
-                          "size":"",
-                          "sort":"",
-                          "status":"In Review",
-                          "sort_order":"",
-                          "suppressed":false,
-                          "rule_intent":"",
-                          "rule_method":"",
-                          "rule_strategy":"",
-                          "priority_label":"",
-                          "alarm_sensor_sources":"",
-                          "timestamp_occured_gte":"",
-                          "timestamp_occured_lte":""
-                       },
-                       "version":"1.0.1",
-                       "connector":"alienvault-usm-anywhere",
-                       "operation":"get_alarms",
-                       "operationTitle":"Get Alarms",
-                       "step_variables":[
-                          
-                       ]
-                    },
-                    "status":null,
-                    "top":"120",
-                    "left":"180",
-                    "stepType":"/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-                    "uuid":"77aa0e81-c66b-4f59-b1ab-58006b31efef",
-                    "id":7421
-                 }
-              ],
-              "routes":[
-                 {
-                    "@type":"WorkflowRoute",
-                    "name":"Alerts -> Get Alarms",
-                    "targetStep":"/api/3/workflow_steps/77aa0e81-c66b-4f59-b1ab-58006b31efef",
-                    "sourceStep":"/api/3/workflow_steps/02aec952-e0d2-4660-902f-ca9aed5a908c",
-                    "label":null,
-                    "isExecuted":false,
-                    "uuid":"c702d3c0-cfe9-43c1-9f28-b30e94c72805"
-                 }
-              ],
-              "priority":null,
-              "uuid":"14d2bd23-ae3b-43b5-a12a-418601e344b2",
-              "recordTags":[
-                 "alienvault-usm-anywhere",
-                 "AlienVault"
-              ],
-              "id":1499,
-              "createUser":"/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-              "createDate":1633027730,
-              "modifyUser":"/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-              "modifyDate":1633027730,
-              "owners":[
-                 
-              ],
-              "isPrivate":false
-           },
-           {
-              "@type":"Workflow",
-              "triggerLimit":null,
-              "name":"Alarm: Delete Alarm Label",
-              "aliasName":null,
-              "tag":"#Alienvault USM Anywhere",
-              "description":"Delete label from input alarm",
-              "isActive":false,
-              "debug":false,
-              "singleRecordExecution":false,
-              "remoteExecutableFlag":false,
-              "parameters":[
-                 
-              ],
-              "synchronous":false,
-              "lastModifyDate":1625827399,
-              "collection":"/api/3/workflow_collections/e4de8e4a-9836-49d9-91a1-c67b8a59f367",
-              "versions":[
-                 
-              ],
-              "triggerStep":"/api/3/workflow_steps/c9767109-d056-4d95-aac2-ece99103c3b5",
-              "steps":[
-                 {
-                    "@type":"WorkflowStep",
-                    "name":"Start",
-                    "description":null,
-                    "arguments":{
-                       "route":"c2daaf3d-4ae0-49ad-ba60-e28d75a0cf1a",
-                       "title":"Alienvault USM Anywhere: Delete Alarm Label",
-                       "resources":[
-                          "alerts"
-                       ],
-                       "inputVariables":[
-                          
-                       ],
-                       "step_variables":{
-                          "input":{
-                             "records":"{{vars.input.records}}"
-                          }
-                       },
-                       "displayConditions":{
-                          "alerts":{
-                             "sort":[
-                                
-                             ],
-                             "limit":30,
-                             "logic":"AND",
-                             "filters":[
-                                
-                             ]
-                          }
-                       },
-                       "executeButtonText":"Execute",
-                       "noRecordExecution":true,
-                       "singleRecordExecution":false
-                    },
-                    "status":null,
-                    "top":"20",
-                    "left":"20",
-                    "stepType":"/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
-                    "uuid":"c9767109-d056-4d95-aac2-ece99103c3b5",
-                    "id":7422
-                 },
-                 {
-                    "@type":"WorkflowStep",
-                    "name":"Delete Alarm Label",
-                    "description":null,
-                    "arguments":{
-                       "name":"Alienvault USM Anywhere",
-                       "config":"3706c9f3-13a8-4d5c-990a-efc2433b213f",
-                       "params":{
-                          "alarmId":"aa274c77-f573-9903-1db5-230b429af083",
-                          "labelId":"2c90c544-9757-4473-adae-c767ddd670e0"
-                       },
-                       "version":"1.0.1",
-                       "connector":"alienvault-usm-anywhere",
-                       "operation":"delete_alarm_label",
-                       "operationTitle":"Delete Alarm Label",
-                       "step_variables":[
-                          
-                       ]
-                    },
-                    "status":null,
-                    "top":"112",
-                    "left":"187",
-                    "stepType":"/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-                    "uuid":"ebe6eb4a-a201-4808-982e-c26eec9ace10",
-                    "id":7423
-                 }
-              ],
-              "routes":[
-                 {
-                    "@type":"WorkflowRoute",
-                    "name":"Start -> Delete Alarm Label",
-                    "targetStep":"/api/3/workflow_steps/ebe6eb4a-a201-4808-982e-c26eec9ace10",
-                    "sourceStep":"/api/3/workflow_steps/c9767109-d056-4d95-aac2-ece99103c3b5",
-                    "label":null,
-                    "isExecuted":false,
-                    "uuid":"7b8d33e2-cdc4-47c3-a25d-25d029bd8186"
-                 }
-              ],
-              "priority":null,
-              "uuid":"55f14630-5249-4976-a3f6-51df80605811",
-              "recordTags":[
-                 "alienvault-usm-anywhere",
-                 "AlienVault"
-              ],
-              "id":1500,
-              "createUser":"/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-              "createDate":1633027730,
-              "modifyUser":"/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-              "modifyDate":1633027730,
-              "owners":[
-                 
-              ],
-              "isPrivate":false
-           },
-           {
-              "@type":"Workflow",
-              "triggerLimit":null,
-              "name":"Alarm: Get Alarm Labels",
-              "aliasName":null,
-              "tag":"#Alienvault USM Anywhere",
-              "description":"List label ids for an alarm",
-              "isActive":false,
-              "debug":false,
-              "singleRecordExecution":false,
-              "remoteExecutableFlag":false,
-              "parameters":[
-                 
-              ],
-              "synchronous":false,
-              "lastModifyDate":1625827944,
-              "collection":"/api/3/workflow_collections/e4de8e4a-9836-49d9-91a1-c67b8a59f367",
-              "versions":[
-                 
-              ],
-              "triggerStep":"/api/3/workflow_steps/0859d68c-cac8-4cc4-b78f-ec94cd45e0b7",
-              "steps":[
-                 {
-                    "@type":"WorkflowStep",
-                    "name":"Alerts",
-                    "description":null,
-                    "arguments":{
-                       "route":"d5b4cf49-e8fa-428a-aedb-3b540c483ed8",
-                       "title":"Alienvault USM Anywhere: Get Alarm Labels",
-                       "resources":[
-                          "alerts"
-                       ],
-                       "inputVariables":[
-                          
-                       ],
-                       "step_variables":{
-                          "input":{
-                             "records":"{{vars.input.records}}"
-                          }
-                       },
-                       "displayConditions":{
-                          "alerts":{
-                             "sort":[
-                                
-                             ],
-                             "limit":30,
-                             "logic":"AND",
-                             "filters":[
-                                
-                             ]
-                          }
-                       },
-                       "executeButtonText":"Execute",
-                       "noRecordExecution":true,
-                       "singleRecordExecution":false
-                    },
-                    "status":null,
-                    "top":"20",
-                    "left":"20",
-                    "stepType":"/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
-                    "uuid":"0859d68c-cac8-4cc4-b78f-ec94cd45e0b7",
-                    "id":7424
-                 },
-                 {
-                    "@type":"WorkflowStep",
-                    "name":"Get Alarm Labels",
-                    "description":null,
-                    "arguments":{
-                       "name":"Alienvault USM Anywhere",
-                       "config":"52b04e16-3d4d-49ae-b818-ebe435541a51",
-                       "params":{
-                          "alarmId":"1708bd82-30f3-1a24-d395-4cf5ca213a97"
-                       },
-                       "version":"1.0.1",
-                       "connector":"alienvault-usm-anywhere",
-                       "operation":"get_alarm_labels",
-                       "operationTitle":"Get Alarm Labels",
-                       "step_variables":[
-                          
-                       ]
-                    },
-                    "status":null,
-                    "top":"140",
-                    "left":"94",
-                    "stepType":"/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-                    "uuid":"88d335f0-65bb-4356-ada7-415080d68046",
-                    "id":7425
-                 }
-              ],
-              "routes":[
-                 {
-                    "@type":"WorkflowRoute",
-                    "name":"Alerts -> Get Alarm Labels",
-                    "targetStep":"/api/3/workflow_steps/88d335f0-65bb-4356-ada7-415080d68046",
-                    "sourceStep":"/api/3/workflow_steps/0859d68c-cac8-4cc4-b78f-ec94cd45e0b7",
-                    "label":null,
-                    "isExecuted":false,
-                    "uuid":"b629b011-78c5-4f2f-8f69-2df6a3d7f20b"
-                 }
-              ],
-              "priority":null,
-              "uuid":"6cd108bd-bf38-4acb-a698-9c258609042d",
-              "recordTags":[
-                 "alienvault-usm-anywhere",
-                 "AlienVault"
-              ],
-              "id":1501,
-              "createUser":"/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-              "createDate":1633027730,
-              "modifyUser":"/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-              "modifyDate":1633027730,
-              "owners":[
-                 
-              ],
-              "isPrivate":false
-           },
-           {
+  "type": "workflow_collections",
+  "data": [
+    {
+      "uuid": "4bbb4587-4d78-4fdc-a41e-3fb430293449",
+      "@type": "WorkflowCollection",
+      "name": "Sample - AlienVault USM Anywhere - 1.1.0",
+      "description": "AlienVault USM Anywhere Connector can be used to automate actions like get events, get event details, get alarm details, get alarms, get alarm labels, add alarm labels and delete alarm labels",
+      "visible": true,
+      "image": null,
+      "recordTags": [
+        "AlienVault",
+        "alienvault-usm-anywhere",
+        "fetch",
+        "create",
+        "ingest"
+      ],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "uuid": "5bbfa583-1bbc-420d-98d0-8d1074e16d5e",
+          "collection": "/api/3/workflow_collections/4bbb4587-4d78-4fdc-a41e-3fb430293449",
+          "triggerLimit": null,
+          "description": "Retrieves a list of all alarms from the AlienVault USM Anywhere server or a list of alarms, based on the input parameters you have specified.",
+          "name": "Get Alarms",
+          "tag": "#AlienVault USM Anywhere",
+          "recordTags": [
+            "AlienVault",
+            "alienvault-usm-anywhere"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/03409e26-90a8-41ad-a75e-82391aaffd1a",
+          "steps": [
+            {
+              "uuid": "03409e26-90a8-41ad-a75e-82391aaffd1a",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "313d4d88-2df1-44fb-a11b-020e72f38e61",
+                "title": "AlienVault USM Anywhere: Get Alarms",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "6bd714ea-13c8-485a-9e1e-9f3e0f459572",
+              "@type": "WorkflowStep",
+              "name": "Get Alarms",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "AlienVault USM Anywhere",
+                "config": "''",
+                "params": {
+                  "page": 1,
+                  "size": 50,
+                  "sort": "Time Created",
+                  "sort_order": "Ascending",
+                  "status": "Open",
+                  "suppressed": false,
+                  "rule_intent": "Environmental Awareness",
+                  "rule_method": "AWS EC2 Security Group Modified",
+                  "rule_strategy": "Network Access Control Modification",
+                  "priority_label": "medium",
+                  "timestamp_occured_gte": "2018-12-27T04:48:08.702Z",
+                  "timestamp_occured_lte": "2018-12-27T04:48:08.702Z"
+                },
+                "version": "1.1.0",
+                "connector": "alienvault-usm-anywhere",
+                "operation": "get_alarms",
+                "operationTitle": "Get Alarms",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "40754a78-ee01-4ae6-89fc-51fba48b3609",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Alarms",
+              "sourceStep": "/api/3/workflow_steps/03409e26-90a8-41ad-a75e-82391aaffd1a",
+              "targetStep": "/api/3/workflow_steps/6bd714ea-13c8-485a-9e1e-9f3e0f459572"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "ce4bc1ed-5944-4976-954c-3951b9c75d7e",
+          "collection": "/api/3/workflow_collections/4bbb4587-4d78-4fdc-a41e-3fb430293449",
+          "triggerLimit": null,
+          "description": "Retrieves details of alarms from the AlienVault USM Anywhere server, based on the alarm ID's you have specified.",
+          "name": "Get Alarm Details",
+          "tag": "#AlienVault USM Anywhere",
+          "recordTags": [
+            "AlienVault",
+            "alienvault-usm-anywhere"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/6c97b6ff-282b-4e0a-97f7-89298c9879db",
+          "steps": [
+            {
+              "uuid": "6c97b6ff-282b-4e0a-97f7-89298c9879db",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "d85e85c6-5650-4d1f-8d1c-3b5b7340bb67",
+                "title": "AlienVault USM Anywhere: Get Alarm Details",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "0b5bb33a-5f57-41ec-9361-f48c0b9beb0b",
+              "@type": "WorkflowStep",
+              "name": "Get Alarm Details",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "AlienVault USM Anywhere",
+                "config": "''",
+                "params": [],
+                "version": "1.1.0",
+                "connector": "alienvault-usm-anywhere",
+                "operation": "get_alarm_details",
+                "operationTitle": "Get Alarm Details",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "3d81d001-8d37-4c39-b7f0-0ad3c9ca5c52",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Alarm Details",
+              "sourceStep": "/api/3/workflow_steps/6c97b6ff-282b-4e0a-97f7-89298c9879db",
+              "targetStep": "/api/3/workflow_steps/0b5bb33a-5f57-41ec-9361-f48c0b9beb0b"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "a657a7de-7ce2-4aa5-8aee-67d9b5b1b934",
+          "collection": "/api/3/workflow_collections/4bbb4587-4d78-4fdc-a41e-3fb430293449",
+          "triggerLimit": null,
+          "description": "Retrieves a list of label IDs for a specific alarm from the AlienVault USM Anywhere server, based on the alarm ID you have specified.",
+          "name": "Get Alarm Labels",
+          "tag": "#AlienVault USM Anywhere",
+          "recordTags": [
+            "AlienVault",
+            "alienvault-usm-anywhere"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/eb20186f-4fca-4d58-805e-cf65c9938a03",
+          "steps": [
+            {
+              "uuid": "eb20186f-4fca-4d58-805e-cf65c9938a03",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "dc4ce6d2-37e1-425a-a08a-c0a09820a977",
+                "title": "AlienVault USM Anywhere: Get Alarm Labels",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "f33c6ed4-8bf6-403b-b965-1df785a0998c",
+              "@type": "WorkflowStep",
+              "name": "Get Alarm Labels",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "AlienVault USM Anywhere",
+                "config": "''",
+                "params": [],
+                "version": "1.1.0",
+                "connector": "alienvault-usm-anywhere",
+                "operation": "get_alarm_labels",
+                "operationTitle": "Get Alarm Labels",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "df25f92e-25af-45d8-834b-d8cd6e3d08ac",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Alarm Labels",
+              "sourceStep": "/api/3/workflow_steps/eb20186f-4fca-4d58-805e-cf65c9938a03",
+              "targetStep": "/api/3/workflow_steps/f33c6ed4-8bf6-403b-b965-1df785a0998c"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "b01ed9d1-2bcb-4a64-8b33-9b7f26b249c1",
+          "collection": "/api/3/workflow_collections/4bbb4587-4d78-4fdc-a41e-3fb430293449",
+          "triggerLimit": null,
+          "description": "Adds a label to a specific alarm on the AlienVault USM Anywhere server, based on the alarm ID and label ID you have specified.",
+          "name": "Add Alarm Label",
+          "tag": "#AlienVault USM Anywhere",
+          "recordTags": [
+            "AlienVault",
+            "alienvault-usm-anywhere"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/5ac59519-73eb-43f5-add5-79b6a1116351",
+          "steps": [
+            {
+              "uuid": "5ac59519-73eb-43f5-add5-79b6a1116351",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "52168141-5e12-4be8-9f04-c51473feed38",
+                "title": "AlienVault USM Anywhere: Add Alarm Label",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "a60b6745-2047-44d7-8efa-53bb7823a0b3",
+              "@type": "WorkflowStep",
+              "name": "Add Alarm Label",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "AlienVault USM Anywhere",
+                "config": "''",
+                "params": [],
+                "version": "1.1.0",
+                "connector": "alienvault-usm-anywhere",
+                "operation": "add_alarm_label",
+                "operationTitle": "Add Alarm Label",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "6b4fa6d3-7761-4e38-9517-6d0187338e97",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Add Alarm Label",
+              "sourceStep": "/api/3/workflow_steps/5ac59519-73eb-43f5-add5-79b6a1116351",
+              "targetStep": "/api/3/workflow_steps/a60b6745-2047-44d7-8efa-53bb7823a0b3"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "aae6e9c2-e260-4e2a-b57d-23ee011cf9ee",
+          "collection": "/api/3/workflow_collections/4bbb4587-4d78-4fdc-a41e-3fb430293449",
+          "triggerLimit": null,
+          "description": "Deletes a label from a specific alarm on the AlienVault USM Anywhere server, based on the alarm ID and label ID you have specified.",
+          "name": "Delete Alarm Label",
+          "tag": "#AlienVault USM Anywhere",
+          "recordTags": [
+            "AlienVault",
+            "alienvault-usm-anywhere"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/ae6b4a64-4341-413c-b275-1b789acdc3ce",
+          "steps": [
+            {
+              "uuid": "ae6b4a64-4341-413c-b275-1b789acdc3ce",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "84db9656-4384-4322-b245-793197416960",
+                "title": "AlienVault USM Anywhere: Delete Alarm Label",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "ac9d496f-1693-4a0e-b3af-caed80e15873",
+              "@type": "WorkflowStep",
+              "name": "Delete Alarm Label",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "AlienVault USM Anywhere",
+                "config": "''",
+                "params": [],
+                "version": "1.1.0",
+                "connector": "alienvault-usm-anywhere",
+                "operation": "delete_alarm_label",
+                "operationTitle": "Delete Alarm Label",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "1c0577cd-f338-474f-9d4e-0e09a239ea7b",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Delete Alarm Label",
+              "sourceStep": "/api/3/workflow_steps/ae6b4a64-4341-413c-b275-1b789acdc3ce",
+              "targetStep": "/api/3/workflow_steps/ac9d496f-1693-4a0e-b3af-caed80e15873"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "53dbf9d9-97de-4a4b-81dd-fe978dafa72b",
+          "collection": "/api/3/workflow_collections/4bbb4587-4d78-4fdc-a41e-3fb430293449",
+          "triggerLimit": null,
+          "description": "Retrieves all events from the AlienVault USM Anywhere server or specific events, based on the input parameters you have specified.",
+          "name": "Get Events",
+          "tag": "#AlienVault USM Anywhere",
+          "recordTags": [
+            "AlienVault",
+            "alienvault-usm-anywhere"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/bd1f682b-7406-47ba-a87a-7da253b05cac",
+          "steps": [
+            {
+              "uuid": "bd1f682b-7406-47ba-a87a-7da253b05cac",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "50b582fd-3224-44d2-98e5-c96dfc6df9f6",
+                "title": "AlienVault USM Anywhere: Get Events",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "0a0eadd3-7c6e-407a-8bfa-9034fc9e1fa2",
+              "@type": "WorkflowStep",
+              "name": "Get Events",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "AlienVault USM Anywhere",
+                "config": "''",
+                "params": {
+                  "accountName": "account",
+                  "page": 1,
+                  "size": 50,
+                  "sort": "Time Created",
+                  "sort_order": "Ascending",
+                  "suppressed": false,
+                  "plugin": "plugin",
+                  "sensorUUID": "308ba880-2518-44bb-9ada-07b158d11713",
+                  "sourceUsername": "user@email.com",
+                  "timestamp_occured_gte": "2018-12-27T04:48:08.702Z",
+                  "timestamp_occured_lte": "2018-12-27T04:48:08.702Z"
+                },
+                "version": "1.1.0",
+                "connector": "alienvault-usm-anywhere",
+                "operation": "get_events",
+                "operationTitle": "Get Events",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "2db0e8b8-4fa2-4693-9c5a-f706a3f256ab",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Events",
+              "sourceStep": "/api/3/workflow_steps/bd1f682b-7406-47ba-a87a-7da253b05cac",
+              "targetStep": "/api/3/workflow_steps/0a0eadd3-7c6e-407a-8bfa-9034fc9e1fa2"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "b22ab90a-fc49-4383-b053-1d59aac942b8",
+          "collection": "/api/3/workflow_collections/4bbb4587-4d78-4fdc-a41e-3fb430293449",
+          "triggerLimit": null,
+          "description": "Retrieves details for a specific event from the AlienVault USM Anywhere server, based on the event ID (UUID) you have specified.",
+          "name": "Get Event Details",
+          "tag": "#AlienVault USM Anywhere",
+          "recordTags": [
+            "AlienVault",
+            "alienvault-usm-anywhere"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/e33f8f8f-0d8a-4937-923e-9e96eb4019b0",
+          "steps": [
+            {
+              "uuid": "e33f8f8f-0d8a-4937-923e-9e96eb4019b0",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "e68db8bf-14f7-4aae-916a-d6fd62139c45",
+                "title": "AlienVault USM Anywhere: Get Event Details",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "18a71244-b921-46a7-88c6-06d73d6c2ba5",
+              "@type": "WorkflowStep",
+              "name": "Get Event Details",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "AlienVault USM Anywhere",
+                "config": "''",
+                "params": [],
+                "version": "1.1.0",
+                "connector": "alienvault-usm-anywhere",
+                "operation": "get_event_details",
+                "operationTitle": "Get Event Details",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "7cf0380e-d49a-44aa-a9a6-07ddb6bba97a",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Event Details",
+              "sourceStep": "/api/3/workflow_steps/e33f8f8f-0d8a-4937-923e-9e96eb4019b0",
+              "targetStep": "/api/3/workflow_steps/18a71244-b921-46a7-88c6-06d73d6c2ba5"
+            }
+          ]
+        },
+        {
               "@type":"Workflow",
               "triggerLimit":null,
               "name":">>AlienVaultUSM > Init Macros",
               "aliasName":null,
               "tag":"#alienvault-usm-anywhere #dataingestion",
               "description":"This playbook create AlienVaultUSM macros if not exist.",
-              "isActive":true,
+              "isActive":false,
               "debug":false,
               "singleRecordExecution":false,
               "remoteExecutableFlag":false,
@@ -398,7 +621,7 @@
               "lastModifyDate":1648652593,
               "collection":"/api/3/workflow_collections/e4de8e4a-9836-49d9-91a1-c67b8a59f367",
               "versions":[
-                 
+
               ],
               "triggerStep":"/api/3/workflow_steps/b6244aa9-6f1e-4b63-8339-7b2b6b3fc9fe",
               "steps":[
@@ -432,7 +655,7 @@
                        "operation":"make_cyops_request",
                        "operationTitle":"FSR: Make FortiSOAR API Call",
                        "step_variables":[
-                          
+
                        ]
                     },
                     "status":null,
@@ -458,7 +681,7 @@
                        "operation":"make_cyops_request",
                        "operationTitle":"FSR: Make FortiSOAR API Call",
                        "step_variables":[
-                          
+
                        ]
                     },
                     "status":null,
@@ -510,7 +733,7 @@
                        "operation":"make_cyops_request",
                        "operationTitle":"FSR: Make FortiSOAR API Call",
                        "step_variables":[
-                          
+
                        ]
                     },
                     "status":null,
@@ -528,7 +751,7 @@
                        "step_variables":{
                           "input":{
                              "params":[
-                                
+
                              ]
                           }
                        }
@@ -600,29 +823,29 @@
               "modifyUser":"/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
               "modifyDate":1648719913,
               "owners":[
-                 
+
               ],
               "isPrivate":false
            },
-           {
+        {
               "@type":"Workflow",
               "triggerLimit":null,
               "name":"> AlienVaultUSM > Fetch",
               "aliasName":null,
               "tag":"#alienvault-usm-anywhere #fetch #dataingestion",
               "description":"This playbook fetch the open incidents.",
-              "isActive":true,
+              "isActive":false,
               "debug":false,
               "singleRecordExecution":false,
               "remoteExecutableFlag":false,
               "parameters":[
-                 
+
               ],
               "synchronous":false,
               "lastModifyDate":1648747299,
               "collection":"/api/3/workflow_collections/e4de8e4a-9836-49d9-91a1-c67b8a59f367",
               "versions":[
-                 
+
               ],
               "triggerStep":"/api/3/workflow_steps/6014bcde-0df4-4be4-998c-8637078640be",
               "steps":[
@@ -673,7 +896,7 @@
                        },
                        "apply_async":false,
                        "step_variables":[
-                          
+
                        ],
                        "workflowReference":"/api/3/workflows/9e8b51cf-1b7b-40df-aa9d-daa51aad90f7"
                     },
@@ -692,7 +915,7 @@
                        "step_variables":{
                           "input":{
                              "params":[
-                                
+
                              ]
                           },
                           "useMockOutput":"false",
@@ -728,7 +951,7 @@
                           "timestamp_occured_gte":"{{vars.last_pull_time}}",
                           "timestamp_occured_lte":"{{vars.curr_timestamp}}"
                        },
-                       "version":"1.0.1",
+                       "version":"1.1.0",
                        "for_each":{
                           "item":"{{vars.pages_array}}",
                           "parallel":false,
@@ -739,7 +962,7 @@
                        "mock_result":"",
                        "operationTitle":"Get Alarms",
                        "step_variables":[
-                          
+
                        ]
                     },
                     "status":null,
@@ -898,29 +1121,29 @@
               "modifyUser":"/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
               "modifyDate":1648747300,
               "owners":[
-                 
+
               ],
               "isPrivate":false
            },
-           {
+        {
               "@type":"Workflow",
               "triggerLimit":null,
               "name":"AlienVaultUSM > Ingest",
               "aliasName":null,
               "tag":"#alienvault-usm-anywhere #ingest #dataingestion #create",
               "description":"This playbook demonstrate the list incident operation.",
-              "isActive":true,
+              "isActive":false,
               "debug":false,
               "singleRecordExecution":false,
               "remoteExecutableFlag":false,
               "parameters":[
-                 
+
               ],
               "synchronous":false,
               "lastModifyDate":1648745730,
               "collection":"/api/3/workflow_collections/e4de8e4a-9836-49d9-91a1-c67b8a59f367",
               "versions":[
-                 
+
               ],
               "triggerStep":"/api/3/workflow_steps/d38fad7c-d3fb-4ef2-aa80-b1dbf21c0150",
               "steps":[
@@ -960,7 +1183,7 @@
                        "operation":"updatemacro",
                        "operationTitle":"FSR: Update Global Variables",
                        "step_variables":[
-                          
+
                        ]
                     },
                     "status":null,
@@ -976,11 +1199,11 @@
                     "description":null,
                     "arguments":{
                        "arguments":[
-                          
+
                        ],
                        "apply_async":false,
                        "step_variables":[
-                          
+
                        ],
                        "workflowReference":"/api/3/workflows/a4c1d5c6-76a8-4a92-ac4e-4a225dbe759e"
                     },
@@ -1002,7 +1225,7 @@
                           "alerts"
                        ],
                        "inputVariables":[
-                          
+
                        ],
                        "step_variables":{
                           "input":{
@@ -1012,22 +1235,22 @@
                        "displayConditions":{
                           "alerts":{
                              "sort":[
-                                
+
                              ],
                              "limit":30,
                              "logic":"AND",
                              "filters":[
-                                
+
                              ]
                           },
                           "incidents":{
                              "sort":[
-                                
+
                              ],
                              "limit":30,
                              "logic":"AND",
                              "filters":[
-                                
+
                              ]
                           }
                        },
@@ -1144,13 +1367,13 @@
                        "operation":"Overwrite",
                        "collection":"/api/3/upsert/alerts",
                        "__recommend":[
-                          
+
                        ],
                        "fieldOperation":{
                           "recordTags":"Overwrite"
                        },
                        "step_variables":[
-                          
+
                        ]
                     },
                     "status":null,
@@ -1213,496 +1436,11 @@
               "modifyUser":"/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
               "modifyDate":1648745730,
               "owners":[
-                 
-              ],
-              "isPrivate":false
-           },
-           {
-              "@type":"Workflow",
-              "triggerLimit":null,
-              "name":"Alarm: Get Alarm Details",
-              "aliasName":null,
-              "tag":"#Alienvault USM Anywhere",
-              "description":"Get Alarm Details",
-              "isActive":false,
-              "debug":false,
-              "singleRecordExecution":false,
-              "remoteExecutableFlag":false,
-              "parameters":[
-                 
-              ],
-              "synchronous":false,
-              "lastModifyDate":1625828053,
-              "collection":"/api/3/workflow_collections/e4de8e4a-9836-49d9-91a1-c67b8a59f367",
-              "versions":[
-                 
-              ],
-              "triggerStep":"/api/3/workflow_steps/6c241d09-54d8-4b00-abc8-961c14391396",
-              "steps":[
-                 {
-                    "@type":"WorkflowStep",
-                    "name":"Get Alarm Details",
-                    "description":null,
-                    "arguments":{
-                       "name":"Alienvault USM Anywhere",
-                       "config":"52b04e16-3d4d-49ae-b818-ebe435541a51",
-                       "params":{
-                          "alarmId":"1708bd82-30f3-1a24-d395-4cf5ca213a97"
-                       },
-                       "version":"1.0.1",
-                       "connector":"alienvault-usm-anywhere",
-                       "operation":"get_alarm_details",
-                       "operationTitle":"Get Alarm Details",
-                       "step_variables":[
-                          
-                       ]
-                    },
-                    "status":null,
-                    "top":"140",
-                    "left":"206",
-                    "stepType":"/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-                    "uuid":"29afa40e-daa3-4043-864d-5bcef7ecccf1",
-                    "id":7426
-                 },
-                 {
-                    "@type":"WorkflowStep",
-                    "name":"Alerts",
-                    "description":null,
-                    "arguments":{
-                       "route":"8fd2a3c2-32c1-4dcd-a8db-03db138f1b9c",
-                       "title":"Alienvault USM Anywhere: Get Alarm Details",
-                       "resources":[
-                          "alerts"
-                       ],
-                       "inputVariables":[
-                          
-                       ],
-                       "step_variables":{
-                          "input":{
-                             "records":"{{vars.request.data.records}}"
-                          }
-                       },
-                       "displayConditions":{
-                          "alerts":{
-                             "sort":[
-                                
-                             ],
-                             "limit":30,
-                             "logic":"AND",
-                             "filters":[
-                                
-                             ]
-                          }
-                       },
-                       "executeButtonText":"Execute",
-                       "noRecordExecution":false,
-                       "singleRecordExecution":false
-                    },
-                    "status":null,
-                    "top":"20",
-                    "left":"20",
-                    "stepType":"/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
-                    "uuid":"6c241d09-54d8-4b00-abc8-961c14391396",
-                    "id":7427
-                 }
-              ],
-              "routes":[
-                 {
-                    "@type":"WorkflowRoute",
-                    "name":"Alerts -> Get Alarm Details",
-                    "targetStep":"/api/3/workflow_steps/29afa40e-daa3-4043-864d-5bcef7ecccf1",
-                    "sourceStep":"/api/3/workflow_steps/6c241d09-54d8-4b00-abc8-961c14391396",
-                    "label":null,
-                    "isExecuted":false,
-                    "uuid":"ad181397-e0fa-4f9c-a247-a1fa42e2ee47"
-                 }
-              ],
-              "priority":null,
-              "uuid":"cf1b5d10-7dae-4b8a-8101-5c5a2d8ca7c7",
-              "recordTags":[
-                 "alienvault-usm-anywhere",
-                 "AlienVault"
-              ],
-              "id":1502,
-              "createUser":"/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-              "createDate":1633027730,
-              "modifyUser":"/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-              "modifyDate":1633027730,
-              "owners":[
-                 
-              ],
-              "isPrivate":false
-           },
-           {
-              "@type":"Workflow",
-              "triggerLimit":null,
-              "name":"Alarm: Add Alarm Label",
-              "aliasName":null,
-              "tag":"#Alienvault USM Anywhere",
-              "description":"Add a label to an alarm",
-              "isActive":false,
-              "debug":false,
-              "singleRecordExecution":false,
-              "remoteExecutableFlag":false,
-              "parameters":[
-                 
-              ],
-              "synchronous":false,
-              "lastModifyDate":1625827107,
-              "collection":"/api/3/workflow_collections/e4de8e4a-9836-49d9-91a1-c67b8a59f367",
-              "versions":[
-                 
-              ],
-              "triggerStep":"/api/3/workflow_steps/4f89c166-fce9-45b6-9fc4-d4a0bf97dbf6",
-              "steps":[
-                 {
-                    "@type":"WorkflowStep",
-                    "name":"Start",
-                    "description":null,
-                    "arguments":{
-                       "route":"f1f149af-8078-4119-9408-60fca657db36",
-                       "title":"Alienvault USM Anywhere: Add Alarm Label",
-                       "resources":[
-                          "alerts"
-                       ],
-                       "inputVariables":[
-                          
-                       ],
-                       "step_variables":{
-                          "input":{
-                             "records":"{{vars.input.records}}"
-                          }
-                       },
-                       "displayConditions":{
-                          "alerts":{
-                             "sort":[
-                                
-                             ],
-                             "limit":30,
-                             "logic":"AND",
-                             "filters":[
-                                
-                             ]
-                          }
-                       },
-                       "executeButtonText":"Execute",
-                       "noRecordExecution":true,
-                       "singleRecordExecution":false
-                    },
-                    "status":null,
-                    "top":"20",
-                    "left":"20",
-                    "stepType":"/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
-                    "uuid":"4f89c166-fce9-45b6-9fc4-d4a0bf97dbf6",
-                    "id":7428
-                 },
-                 {
-                    "@type":"WorkflowStep",
-                    "name":"Add Alarm Label",
-                    "description":null,
-                    "arguments":{
-                       "name":"Alienvault USM Anywhere",
-                       "config":"3706c9f3-13a8-4d5c-990a-efc2433b213f",
-                       "params":{
-                          "alarmId":"aa274c77-f573-9903-1db5-230b429af083",
-                          "labelId":"2c90c544-9757-4473-adae-c767ddd670e0"
-                       },
-                       "version":"1.0.1",
-                       "connector":"alienvault-usm-anywhere",
-                       "operation":"add_alarm_label",
-                       "operationTitle":"Add Alarm Label",
-                       "step_variables":[
-                          
-                       ]
-                    },
-                    "status":null,
-                    "top":"137",
-                    "left":"211",
-                    "stepType":"/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-                    "uuid":"5a4d2a8c-d7fa-46f7-b61a-334060a68787",
-                    "id":7429
-                 }
-              ],
-              "routes":[
-                 {
-                    "@type":"WorkflowRoute",
-                    "name":"Start -> Add Alarm Label",
-                    "targetStep":"/api/3/workflow_steps/5a4d2a8c-d7fa-46f7-b61a-334060a68787",
-                    "sourceStep":"/api/3/workflow_steps/4f89c166-fce9-45b6-9fc4-d4a0bf97dbf6",
-                    "label":null,
-                    "isExecuted":false,
-                    "uuid":"de554a67-a1e5-47f0-a0b3-a1670d7ad991"
-                 }
-              ],
-              "priority":null,
-              "uuid":"e8af1410-79f0-45fa-b692-62cd937e6b1b",
-              "recordTags":[
-                 "alienvault-usm-anywhere",
-                 "AlienVault"
-              ],
-              "id":1503,
-              "createUser":"/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-              "createDate":1633027730,
-              "modifyUser":"/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-              "modifyDate":1633027730,
-              "owners":[
-                 
-              ],
-              "isPrivate":false
-           },
-           {
-              "@type":"Workflow",
-              "triggerLimit":null,
-              "name":"Event: Get Events",
-              "aliasName":null,
-              "tag":"#Alienvault USM Anywhere",
-              "description":"Get events from USM server",
-              "isActive":false,
-              "debug":false,
-              "singleRecordExecution":false,
-              "remoteExecutableFlag":false,
-              "parameters":[
-                 
-              ],
-              "synchronous":false,
-              "lastModifyDate":1625828519,
-              "collection":"/api/3/workflow_collections/e4de8e4a-9836-49d9-91a1-c67b8a59f367",
-              "versions":[
-                 
-              ],
-              "triggerStep":"/api/3/workflow_steps/d25c838b-add1-4cf0-848d-b6d93f871b89",
-              "steps":[
-                 {
-                    "@type":"WorkflowStep",
-                    "name":"Alerts",
-                    "description":null,
-                    "arguments":{
-                       "route":"623cca61-4a8d-424d-a7b5-509f34174f48",
-                       "title":"Alienvault USM Anywhere: Get Events",
-                       "resources":[
-                          "alerts"
-                       ],
-                       "inputVariables":[
-                          
-                       ],
-                       "step_variables":{
-                          "input":{
-                             "records":"{{vars.input.records}}"
-                          }
-                       },
-                       "displayConditions":{
-                          "alerts":{
-                             "sort":[
-                                
-                             ],
-                             "limit":30,
-                             "logic":"AND",
-                             "filters":[
-                                
-                             ]
-                          }
-                       },
-                       "executeButtonText":"Execute",
-                       "noRecordExecution":true,
-                       "singleRecordExecution":false
-                    },
-                    "status":null,
-                    "top":"20",
-                    "left":"20",
-                    "stepType":"/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
-                    "uuid":"d25c838b-add1-4cf0-848d-b6d93f871b89",
-                    "id":7430
-                 },
-                 {
-                    "@type":"WorkflowStep",
-                    "name":"Get Events",
-                    "description":null,
-                    "arguments":{
-                       "name":"Alienvault USM Anywhere",
-                       "config":"52b04e16-3d4d-49ae-b818-ebe435541a51",
-                       "params":{
-                          "page":1,
-                          "size":50,
-                          "sort":"timestamp_occured",
-                          "plugin":"plugin",
-                          "eventName":"",
-                          "sensorUUID":"308ba880-2518-44bb-9ada-07b158d11713",
-                          "sort_order":"",
-                          "sourceName":"",
-                          "suppressed":false,
-                          "accountName":"account",
-                          "sourceUsername":"user@email.com",
-                          "timestamp_occured_gte":"2018-12-03T05:37:05.850Z",
-                          "timestamp_occured_lte":"2018-12-17T05:36:55.794Z"
-                       },
-                       "version":"1.0.1",
-                       "connector":"alienvault-usm-anywhere",
-                       "operation":"get_events",
-                       "operationTitle":"Get Events",
-                       "step_variables":[
-                          
-                       ]
-                    },
-                    "status":null,
-                    "top":"193",
-                    "left":"203",
-                    "stepType":"/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-                    "uuid":"fdcbe273-76f2-47c2-b7be-8cedbce0c271",
-                    "id":7431
-                 }
-              ],
-              "routes":[
-                 {
-                    "@type":"WorkflowRoute",
-                    "name":"Alerts -> Get Events",
-                    "targetStep":"/api/3/workflow_steps/fdcbe273-76f2-47c2-b7be-8cedbce0c271",
-                    "sourceStep":"/api/3/workflow_steps/d25c838b-add1-4cf0-848d-b6d93f871b89",
-                    "label":null,
-                    "isExecuted":false,
-                    "uuid":"f707b79c-7df3-4e9f-9fb3-8693dd0daee3"
-                 }
-              ],
-              "priority":null,
-              "uuid":"f1fae8c5-dee3-403c-afe9-c84ebbe104ac",
-              "recordTags":[
-                 "alienvault-usm-anywhere",
-                 "AlienVault"
-              ],
-              "id":1504,
-              "createUser":"/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-              "createDate":1633027730,
-              "modifyUser":"/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-              "modifyDate":1633027730,
-              "owners":[
-                 
-              ],
-              "isPrivate":false
-           },
-           {
-              "@type":"Workflow",
-              "triggerLimit":null,
-              "name":"Event: Get Event Details",
-              "aliasName":null,
-              "tag":"#Alienvault USM Anywhere",
-              "description":"Get Event Details",
-              "isActive":false,
-              "debug":false,
-              "singleRecordExecution":false,
-              "remoteExecutableFlag":false,
-              "parameters":[
-                 
-              ],
-              "synchronous":false,
-              "lastModifyDate":1625828449,
-              "collection":"/api/3/workflow_collections/e4de8e4a-9836-49d9-91a1-c67b8a59f367",
-              "versions":[
-                 
-              ],
-              "triggerStep":"/api/3/workflow_steps/bfcb9665-d907-477c-9ea1-79b6e4b36738",
-              "steps":[
-                 {
-                    "@type":"WorkflowStep",
-                    "name":"Get Event Details",
-                    "description":null,
-                    "arguments":{
-                       "name":"Alienvault USM Anywhere",
-                       "config":"52b04e16-3d4d-49ae-b818-ebe435541a51",
-                       "params":{
-                          "eventId":"93399a50-6c9d-99fb-bb2a-a6bdc7583c3b"
-                       },
-                       "version":"1.0.1",
-                       "connector":"alienvault-usm-anywhere",
-                       "operation":"get_event_details",
-                       "operationTitle":"Get Event Details",
-                       "step_variables":[
-                          
-                       ]
-                    },
-                    "status":null,
-                    "top":"168",
-                    "left":"173",
-                    "stepType":"/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-                    "uuid":"37e5c088-9b4e-426b-ac2e-51951ded5071",
-                    "id":7432
-                 },
-                 {
-                    "@type":"WorkflowStep",
-                    "name":"Alerts",
-                    "description":null,
-                    "arguments":{
-                       "route":"921cabc7-5ce2-41d1-8457-63f46b16ea10",
-                       "title":"Alienvault USM Anywhere: Get Event Details",
-                       "resources":[
-                          "alerts"
-                       ],
-                       "inputVariables":[
-                          
-                       ],
-                       "step_variables":{
-                          "input":{
-                             "records":"{{vars.request.data.records}}"
-                          }
-                       },
-                       "displayConditions":{
-                          "alerts":{
-                             "sort":[
-                                
-                             ],
-                             "limit":30,
-                             "logic":"AND",
-                             "filters":[
-                                
-                             ]
-                          }
-                       },
-                       "executeButtonText":"Execute",
-                       "noRecordExecution":false,
-                       "singleRecordExecution":false
-                    },
-                    "status":null,
-                    "top":"20",
-                    "left":"20",
-                    "stepType":"/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
-                    "uuid":"bfcb9665-d907-477c-9ea1-79b6e4b36738",
-                    "id":7433
-                 }
-              ],
-              "routes":[
-                 {
-                    "@type":"WorkflowRoute",
-                    "name":"Alerts -> Get Event Details",
-                    "targetStep":"/api/3/workflow_steps/37e5c088-9b4e-426b-ac2e-51951ded5071",
-                    "sourceStep":"/api/3/workflow_steps/bfcb9665-d907-477c-9ea1-79b6e4b36738",
-                    "label":null,
-                    "isExecuted":false,
-                    "uuid":"b4300979-08f7-4e3e-a930-b673395ff4d0"
-                 }
-              ],
-              "priority":null,
-              "uuid":"f3941066-8a87-40c4-a4b9-f47081c278f5",
-              "recordTags":[
-                 "alienvault-usm-anywhere",
-                 "AlienVault"
-              ],
-              "id":1505,
-              "createUser":"/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-              "createDate":1633027730,
-              "modifyUser":"/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-              "modifyDate":1633027730,
-              "owners":[
-                 
+
               ],
               "isPrivate":false
            }
-        ]
-     }
-  ],
-  "exported_tags":[
-     "alienvault-usm-anywhere",
-     "AlienVault",
-     "dataingestion",
-     "fetch",
-     "create",
-     "ingest"
+      ]
+    }
   ]
 }
