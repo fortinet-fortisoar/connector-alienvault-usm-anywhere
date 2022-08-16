@@ -106,7 +106,6 @@
         },
         {
           "title": "Sort Order",
-          "tooltip": "",
           "description": "",
           "required": false,
           "editable": true,
@@ -602,7 +601,6 @@
         },
         {
           "title": "Sort Order",
-          "tooltip": "",
           "description": "",
           "required": false,
           "editable": true,
