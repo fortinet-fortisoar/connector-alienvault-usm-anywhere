@@ -5,7 +5,7 @@
   "publisher": "Community",
   "cs_approved": false,
   "cs_compatible": true,
-  "version": "1.1.0",
+  "version": "1.2.0",
   "category": "Threat Detection",
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
@@ -13,7 +13,7 @@
         "scheduled"
     ],
   "ingestion_supported": true,
-  "help_online": "https://docs.fortinet.com/document/fortisoar/1.1.0/alienvault-usm-anywhere/354/alienvault-usm-anywhere-v1-1-0",
+  "help_online": "",
   "configuration": {
     "fields": [
       {
