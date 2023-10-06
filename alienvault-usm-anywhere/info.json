@@ -2,7 +2,7 @@
   "name": "alienvault-usm-anywhere",
   "label": "AlienVault USM Anywhere",
   "description": "AlienVault USM Anywhere Connector can be used to automate actions like get events, get event details, get alarm details, get alarms, get alarm labels, add alarm labels and delete alarm labels",
-  "publisher": "Community",
+  "publisher": "Fortinet",
   "cs_approved": false,
   "cs_compatible": true,
   "version": "1.2.0",
