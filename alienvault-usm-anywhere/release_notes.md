@@ -1,2 +1,2 @@
 #### What's Improved
-    - Added Data ingestion wizard to fetch Alarms from Alienvault USM.
+    - Fixed an issue with data ingestion playbooks when ingesting alarms via AlienVault USM Anywhere connector with a time filter applied.
