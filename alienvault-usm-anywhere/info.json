@@ -13,7 +13,7 @@
         "scheduled"
     ],
   "ingestion_supported": true,
-  "help_online": "",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.2.0/alienvault-usm-anywhere/731/alienvault-usm-anywhere-v1-2-0",
   "configuration": {
     "fields": [
       {
